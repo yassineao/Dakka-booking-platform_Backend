@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${PGHOST_UNPOOLED}:5432/neondb?sslmode=require
+    username: neondb_owner
+    password: ${POSTGRES_PASSWORD}
+  logging:
+    level:
+      org.springframework.core.env: TRACE
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+      enabled: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.flywaydb: INFO
