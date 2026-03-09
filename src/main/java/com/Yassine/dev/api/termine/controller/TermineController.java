@@ -24,26 +24,14 @@ public class TermineController {
 
     @PostMapping
     public TermineResponse create(@Valid @RequestBody TermineCreateRequest request) {
-        System.out.println("========== CONTROLLER DEBUG ==========");
-        System.out.println("Region: " + request.getRegion());
-        System.out.println("ExactLocation: " + request.getExactLocation());
-        System.out.println("Name: " + request.getName());
-        System.out.println("HallOrLocation: " + request.getHallOrLocation());
-        System.out.println("Occasion: " + request.getOccasion());
-        System.out.println("PackageName: " + request.getPackageName());
-        System.out.println("BookingType: " + request.getBookingType());
-        System.out.println("Duration: " + request.getDuration());
-        System.out.println("Description: " + request.getDescription());
-        System.out.println("Status: " + request.getStatus());
-        System.out.println("StartDate: " + request.getStartDate());
-        System.out.println("EndDate: " + request.getEndDate());
-        System.out.println("=====================================");
+        
 
         return service.create(request);
     }
 
     @GetMapping
     public List<TermineResponse> getAll() {
+        System.out.println("=====================================");
         return service.getAll();
     }
 
