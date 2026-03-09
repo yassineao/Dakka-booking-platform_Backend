@@ -11,6 +11,6 @@ import java.util.UUID;
 
 
 public interface TermineRepository extends JpaRepository<Termine, UUID> {
-    List<Termine> findByStatus(Status status);
+    List<Termine> findByName(Status status);
 
 }

@@ -5,11 +5,22 @@ import com.Yassine.dev.api.termine.enums.Status;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class TermineUpdateRequest {
 
+    private UUID id;
+
     @Size(max = 100)
     private String region;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     @Size(max = 255)
     private String exactLocation;
@@ -134,4 +145,6 @@ public class TermineUpdateRequest {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+
 }

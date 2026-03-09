@@ -24,7 +24,7 @@ public class TermineController {
 
     @PostMapping
     public TermineResponse create(@Valid @RequestBody TermineCreateRequest request) {
-        
+
 
         return service.create(request);
     }
@@ -44,6 +44,10 @@ public class TermineController {
     public TermineResponse update(@PathVariable UUID id,
                                   @RequestBody TermineUpdateRequest request) {
         return service.update(id, request);
+    }
+    @PatchMapping("/batch")
+    public List<TermineResponse> updateBatch(@RequestBody List<TermineUpdateRequest> requests) {
+        return service.updateBatch(requests);
     }
 
     @PatchMapping("/{id}/status")

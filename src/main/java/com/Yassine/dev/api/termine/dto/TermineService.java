@@ -63,4 +63,10 @@ public class TermineService {
 
         repository.delete(termine);
     }
+
+    public List<TermineResponse> updateBatch(List<TermineUpdateRequest> requests) {
+        return requests.stream()
+                .map(r -> update(r.getId(), r))
+                .toList();
+    }
 }
