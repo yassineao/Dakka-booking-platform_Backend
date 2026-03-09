@@ -2,49 +2,37 @@ package com.Yassine.dev.api.termine.dto;
 
 import com.Yassine.dev.api.termine.enums.Occasion;
 import com.Yassine.dev.api.termine.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class TermineResponse {
 
-
     private UUID id;
     private String region;
     private String exactLocation;
-
     private String name;
     private String hallOrLocation;
-
     private Occasion occasion;
     private String packageName;
     private String bookingType;
     private String duration;
-
     private String description;
     private Status status;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime startDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime endDate;
 
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime updatedAt;
+
     public UUID getId() {
         return id;
     }
@@ -52,6 +40,7 @@ public class TermineResponse {
     public void setId(UUID id) {
         this.id = id;
     }
+
     public String getRegion() {
         return region;
     }
@@ -130,6 +119,22 @@ public class TermineResponse {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public LocalDateTime getCreatedAt() {

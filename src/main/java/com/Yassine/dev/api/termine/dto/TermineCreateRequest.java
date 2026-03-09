@@ -2,6 +2,7 @@ package com.Yassine.dev.api.termine.dto;
 
 import com.Yassine.dev.api.termine.enums.Occasion;
 import com.Yassine.dev.api.termine.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -26,8 +27,16 @@ public class TermineCreateRequest {
     private String bookingType;
     private String duration;
 
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime startDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime endDate;
+
+    @Size(max = 1000)
+    private String description;
+
+    private Status status;
 
     public LocalDateTime getStartDate() {
         return startDate;
@@ -44,11 +53,6 @@ public class TermineCreateRequest {
     public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
-
-    @Size(max = 1000)
-    private String description;
-
-    private Status status;
 
     public String getRegion() {
         return region;

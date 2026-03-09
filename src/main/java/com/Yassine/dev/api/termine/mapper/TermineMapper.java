@@ -1,6 +1,5 @@
 package com.Yassine.dev.api.termine.mapper;
 
-
 import com.Yassine.dev.api.termine.dto.TermineCreateRequest;
 import com.Yassine.dev.api.termine.dto.TermineResponse;
 import com.Yassine.dev.api.termine.dto.TermineUpdateRequest;
@@ -28,10 +27,27 @@ public class TermineMapper {
         r.setCreatedAt(termine.getCreatedAt());
         r.setUpdatedAt(termine.getUpdatedAt());
 
+        r.setStartDate(termine.getStartDate());
+        r.setEndDate(termine.getEndDate());
+
         return r;
     }
 
     public static Termine toEntity(TermineCreateRequest request) {
+        System.out.println("=== CREATE TERMIN ===");
+        System.out.println("Region: " + request.getRegion());
+        System.out.println("Exact Location: " + request.getExactLocation());
+        System.out.println("Name: " + request.getName());
+        System.out.println("HallOrLocation: " + request.getHallOrLocation());
+        System.out.println("StartDate: " + request.getStartDate());
+        System.out.println("EndDate: " + request.getEndDate());
+        System.out.println("Occasion: " + request.getOccasion());
+        System.out.println("PackageName: " + request.getPackageName());
+        System.out.println("BookingType: " + request.getBookingType());
+        System.out.println("Duration: " + request.getDuration());
+        System.out.println("Description: " + request.getDescription());
+        System.out.println("Status: " + request.getStatus());
+
         Termine termine = new Termine();
 
         termine.setRegion(request.getRegion());
@@ -39,6 +55,9 @@ public class TermineMapper {
 
         termine.setName(request.getName());
         termine.setHallOrLocation(request.getHallOrLocation());
+
+        termine.setStartDate(request.getStartDate());
+        termine.setEndDate(request.getEndDate());
 
         termine.setOccasion(request.getOccasion());
         termine.setPackageName(request.getPackageName());
@@ -50,8 +69,8 @@ public class TermineMapper {
 
         return termine;
     }
-    public static void updateEntity(TermineUpdateRequest request, Termine termine) {
 
+    public static void updateEntity(TermineUpdateRequest request, Termine termine) {
         if (request.getRegion() != null) {
             termine.setRegion(request.getRegion());
         }
@@ -90,6 +109,14 @@ public class TermineMapper {
 
         if (request.getStatus() != null) {
             termine.setStatus(request.getStatus());
+        }
+
+        if (request.getStartDate() != null) {
+            termine.setStartDate(request.getStartDate());
+        }
+
+        if (request.getEndDate() != null) {
+            termine.setEndDate(request.getEndDate());
         }
     }
 }

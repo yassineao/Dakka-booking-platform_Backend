@@ -4,38 +4,32 @@ import com.Yassine.dev.api.termine.enums.Occasion;
 import com.Yassine.dev.api.termine.enums.Status;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-
-import java.time.LocalDateTime;
 @Entity
 @Table(name = "Termine")
 public class Termine {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    // Ort
-    private String region;          // NRW / Anderer Ort
-    private String exactLocation;   // genauer Ort
+    private String region;
+    private String exactLocation;
 
-    // Kunde
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private String hallOrLocation;  // Saal / Location
+    private String hallOrLocation;
 
-    // Event Details
     @Enumerated(EnumType.STRING)
-    private Occasion occasion;       // Hochzeit etc
-    private String packageName;     // Paket
-    private String bookingType;     // Meeting / Event etc
-    private String duration;        // Dauer
+    private Occasion occasion;
 
-
+    private String packageName;
+    private String bookingType;
+    private String duration;
 
     @Column(length = 1000)
     private String description;
@@ -43,36 +37,12 @@ public class Termine {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    // Termin Datum
+    @Column(name = "start_date")
     private LocalDateTime startDate;
 
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
+    @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    // System fields
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -85,8 +55,6 @@ public class Termine {
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
-
-    // Getter & Setter
 
     public UUID getId() {
         return id;
@@ -168,19 +136,43 @@ public class Termine {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
     public Status getStatus() {
         return status;
     }
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
