@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/auth/**", "/health", "/api/termine/**").permitAll()
+                        .requestMatchers("/auth/**", "/health").permitAll()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider)
@@ -56,7 +56,8 @@ public class SecurityConfig {
         configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:3000",
                 "http://localhost:5173",
-                "https://dakka-booking-platform-pdfz.vercel.app"
+                "https://dakka-booking-platform-pdfz.vercel.app",
+                "https://dakka-dashboard.vercel.app"
         ));
 
         configuration.setAllowedMethods(List.of(
