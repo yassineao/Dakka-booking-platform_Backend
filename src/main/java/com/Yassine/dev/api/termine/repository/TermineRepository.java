@@ -13,8 +13,7 @@ import java.util.UUID;
 public interface TermineRepository extends JpaRepository<Termine, UUID> {
     List<Termine> findByName(Status status);
 
-    @Query("SELECT t FROM Termine t WHERE t.status = :status AND " +
-           "((t.updatedAt IS NOT NULL AND t.updatedAt < :cutoff) ")
+    @Query("SELECT t FROM Termine t WHERE t.status = :status AND t.updatedAt IS NOT NULL AND t.updatedAt < :cutoff")
     List<Termine> findByStatusAndLastModifiedBefore(@Param("status") Status status,
                                                     @Param("cutoff") LocalDateTime cutoff);
 }
