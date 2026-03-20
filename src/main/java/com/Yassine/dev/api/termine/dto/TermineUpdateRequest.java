@@ -31,6 +31,9 @@ public class TermineUpdateRequest {
     @Size(max = 255)
     private String hallOrLocation;
 
+    @Size(max = 30)
+    private String phoneNumber;
+
     private Occasion occasion;
 
     @Size(max = 255)
@@ -96,6 +99,14 @@ public class TermineUpdateRequest {
 
     public void setHallOrLocation(String hallOrLocation) {
         this.hallOrLocation = hallOrLocation;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Occasion getOccasion() {

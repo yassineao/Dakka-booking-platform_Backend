@@ -21,6 +21,9 @@ public class TermineCreateRequest {
     @Size(max = 255)
     private String hallOrLocation;
 
+    @Size(max = 30)
+    private String phoneNumber;
+
     private Occasion occasion;
 
     private String packageName;
@@ -84,6 +87,14 @@ public class TermineCreateRequest {
 
     public void setHallOrLocation(String hallOrLocation) {
         this.hallOrLocation = hallOrLocation;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Occasion getOccasion() {

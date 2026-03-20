@@ -15,6 +15,7 @@ public class TermineMapper {
 
         r.setName(termine.getName());
         r.setHallOrLocation(termine.getHallOrLocation());
+        r.setPhoneNumber(termine.getPhoneNumber());
 
         r.setOccasion(termine.getOccasion());
         r.setPackageName(termine.getPackageName());
@@ -39,6 +40,7 @@ public class TermineMapper {
         System.out.println("Exact Location: " + request.getExactLocation());
         System.out.println("Name: " + request.getName());
         System.out.println("HallOrLocation: " + request.getHallOrLocation());
+        System.out.println("PhoneNumber: " + request.getPhoneNumber());
         System.out.println("StartDate: " + request.getStartDate());
         System.out.println("EndDate: " + request.getEndDate());
         System.out.println("Occasion: " + request.getOccasion());
@@ -55,6 +57,7 @@ public class TermineMapper {
 
         termine.setName(request.getName());
         termine.setHallOrLocation(request.getHallOrLocation());
+        termine.setPhoneNumber(request.getPhoneNumber());
 
         termine.setStartDate(request.getStartDate());
         termine.setEndDate(request.getEndDate());
@@ -85,6 +88,10 @@ public class TermineMapper {
 
         if (request.getHallOrLocation() != null) {
             termine.setHallOrLocation(request.getHallOrLocation());
+        }
+
+        if (request.getPhoneNumber() != null) {
+            termine.setPhoneNumber(request.getPhoneNumber());
         }
 
         if (request.getOccasion() != null) {

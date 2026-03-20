@@ -1,0 +1,2 @@
+ALTER TABLE termine
+ADD COLUMN IF NOT EXISTS phone_number VARCHAR(30);

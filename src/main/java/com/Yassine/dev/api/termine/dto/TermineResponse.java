@@ -14,6 +14,7 @@ public class TermineResponse {
     private String exactLocation;
     private String name;
     private String hallOrLocation;
+    private String phoneNumber;
     private Occasion occasion;
     private String packageName;
     private String bookingType;
@@ -71,6 +72,14 @@ public class TermineResponse {
 
     public void setHallOrLocation(String hallOrLocation) {
         this.hallOrLocation = hallOrLocation;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Occasion getOccasion() {

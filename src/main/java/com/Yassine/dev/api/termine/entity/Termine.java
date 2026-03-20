@@ -24,6 +24,9 @@ public class Termine {
     @Column(nullable = false)
     private String hallOrLocation;
 
+    @Column(length = 30)
+    private String phoneNumber;
+
     @Enumerated(EnumType.STRING)
     private Occasion occasion;
 
@@ -94,6 +97,14 @@ public class Termine {
 
     public void setHallOrLocation(String hallOrLocation) {
         this.hallOrLocation = hallOrLocation;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Occasion getOccasion() {
